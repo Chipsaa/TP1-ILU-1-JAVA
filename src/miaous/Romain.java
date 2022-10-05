@@ -32,6 +32,7 @@ public class Romain  {
 	
 	public static void main(String[] args) {
 		Romain noa = new Romain("Noa",6);
-		
+		System.out.println(Equipement.BOUCLIER);
+		System.out.println(Equipement.CASQUE);
 	}
 } 

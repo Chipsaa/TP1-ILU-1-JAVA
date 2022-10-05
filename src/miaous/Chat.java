@@ -30,15 +30,5 @@ public class Chat{
 		return "Chat [nom=" + nom + ", force=" + force 
 				+ ", effetPotion=" + effetPotion + "]"; 
 	} 
-	
-	public static void main(String[] args) {
-		Romain noa = new Romain("Noa",5);
-		Chat cotton = new Chat("Cotton",8);
-		System.out.println(cotton);
-		cotton.prendreParole();
-		cotton.parler("Miaou miaou");
-		cotton.frapper(noa);
-		
-		//TODO créer un main permettant de tester la classe Chat 
-	} 
+	 
 } 

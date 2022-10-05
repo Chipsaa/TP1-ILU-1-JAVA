@@ -48,6 +48,6 @@ public class Village {
 		
 		Chat croquette = new Chat("Croquette",25);
 		village.ajouterHabitant(croquette);
-		village.afficherVillageois();
+		//village.afficherVillageois();
 	}
 }

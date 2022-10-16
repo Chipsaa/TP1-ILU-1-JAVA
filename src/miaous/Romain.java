@@ -3,9 +3,11 @@ package miaous;
 public class Romain  { 
 	private String nom; 
 	private int force; 
+	private int nbEquipement = 0;
+	private Equipement[] equipements = new Equipement[2];
 	
 	public Romain(String nom, int force) {
-		assert force >=0 : "Force négative";
+		assert force >=0 : "Force nï¿½gative";
 		this.nom = nom; 
 		this.force = force; 
 	} 
@@ -13,26 +15,45 @@ public class Romain  {
 		return nom; 
 	} 
 	public void parler(String texte) { 
-		System.out.println(prendreParole() + "« " + texte + "»"); 
+		System.out.println(prendreParole() + "ï¿½ " + texte + "ï¿½"); 
 	} 
 	private String prendreParole() { 
 		return "Le romain " + nom + " : "; 
 	} 
 	public void recevoirCoup(int forceCoup) { 
-		assert force >= 0 : "Force négative";
+		assert force >= 0 : "Force nï¿½gative";
 		int forcePre = force;
 		force -= forceCoup; 
 		if (force > 0) { 
-			parler("Aïe"); 
+			parler("Aï¿½e"); 
 		} else { 
 			parler("J'abandonne..."); 
 		} 
-		assert force < forcePre : "La force n'a pas diminué":
+		assert force < forcePre : "La force n'a pas diminuÃ©";
 	} 
+	
+	public void sEquiper(Equipement equipement) {
+		switch (nbEquipement) {
+			case 2: 
+				System.out.println("Le soldat " + nom + " est dÃ©jÃ  bien protÃ©gÃ© !");
+				break;
+			case 1:
+				if (equipement == equipements[0]) {
+				System.out.println("Le soldat " + nom + " possÃ¨de dÃ©jÃ  un " + equipement.toString() + ".");
+				break;
+				}
+			default:
+				equipements[nbEquipement] = equipement;
+				nbEquipement ++;
+				System.out.println("Le soldat " + nom + " s'Ã©quipe avec un " + equipement.toString() + ".");
+		}
+	}
 	
 	public static void main(String[] args) {
 		Romain noa = new Romain("Noa",6);
-		System.out.println(Equipement.BOUCLIER);
-		System.out.println(Equipement.CASQUE);
+		noa.sEquiper(Equipement.CASQUE);
+		noa.sEquiper(Equipement.CASQUE);
+		noa.sEquiper(Equipement.BOUCLIER);
+		noa.sEquiper(Equipement.BOUCLIER);
 	}
 } 
